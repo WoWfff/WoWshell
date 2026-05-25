@@ -269,6 +269,233 @@ Before finalizing any implementation mentally verify:
 - runtime resilience
 </tooling_and_validation>
 
+<scripting_and_automation_rules>
+
+The scripts/ directory is responsible for lightweight development tooling and repository automation.
+
+Scripts should:
+- remain small and focused
+- be maintainable
+- be deterministic
+- be safe for repeated execution
+- avoid hidden side effects
+- avoid dangerous filesystem behavior
+
+Use scripts for:
+- validation workflows
+- formatting workflows
+- linting workflows
+- runtime checks
+- startup profiling
+- lightweight automation
+- development convenience tooling
+
+Avoid using scripts for:
+- complex application logic
+- runtime business logic
+- giant deployment systems
+- unnecessary abstractions
+- large framework-like tooling
+
+Prefer:
+- simple composable scripts
+- explicit commands
+- readable shell code
+- safe filesystem operations
+- defensive error handling
+- portable behavior where reasonable
+
+Scripts must:
+- use strict shell modes when applicable
+- fail loudly on errors
+- avoid unsafe recursive deletion
+- avoid hardcoded machine-specific paths
+- avoid hidden environment assumptions
+
+Prefer zsh for repository scripts.
+
+When adding new scripts:
+- ensure the script has a clear single responsibility
+- document non-obvious behavior
+- preserve readability
+- avoid premature complexity
+
+Validation scripts should prioritize:
+- qmllint
+- qmlformat
+- runtime consistency checks
+- repository safety checks
+
+Profiling scripts should remain lightweight and development-focused.
+
+Never generate scripts that:
+- expose secrets
+- modify unrelated files
+- perform dangerous destructive operations
+- silently ignore failures
+- bypass validation workflows
+
+</scripting_and_automation_rules>
+
+<script_usage_reference>
+
+The repository contains a lightweight development tooling layer inside scripts/.
+
+Scripts are intended for:
+- validation
+- formatting
+- runtime verification
+- profiling
+- development workflows
+- repository automation
+
+Always prefer reusing existing scripts before creating new ones.
+
+Before adding a new script:
+- verify whether an existing script already solves the problem
+- avoid duplicate tooling responsibilities
+- preserve maintainable repository workflows
+
+Current scripts and intended usage:
+
+scripts/lint.sh
+Purpose:
+- run qmllint validation
+- validate QML syntax and common runtime issues
+
+Use when:
+- validating QML changes
+- reviewing architecture changes
+- checking reactive correctness
+- before commits
+- after large refactors
+
+Example:
+./scripts/lint.sh
+
+---
+
+scripts/format.sh
+Purpose:
+- apply consistent QML formatting using qmlformat
+
+Use when:
+- formatting modified QML files
+- normalizing repository formatting
+- preparing changes before commit
+
+Example:
+./scripts/format.sh
+
+---
+
+scripts/validate.sh
+Purpose:
+- run the complete validation pipeline
+
+Includes:
+- qmllint
+- formatting validation
+- repository consistency checks
+
+Use when:
+- before commits
+- after large refactors
+- before opening pull requests
+- before runtime testing
+
+Example:
+./scripts/validate.sh
+
+Always prefer validate.sh over manually running multiple validation commands.
+
+---
+
+scripts/check-runtime.sh
+Purpose:
+- verify required runtime dependencies and tooling availability
+
+Checks:
+- qs
+- qmllint
+- qmlformat
+- pre-commit
+
+Use when:
+- setting up a development environment
+- debugging missing tools
+- validating a new machine setup
+
+Example:
+./scripts/check-runtime.sh
+
+---
+
+scripts/install-hooks.sh
+Purpose:
+- install git pre-commit hooks
+
+Use when:
+- initializing the repository
+- configuring a new development environment
+- restoring missing hooks
+
+Example:
+./scripts/install-hooks.sh
+
+---
+
+scripts/run-shell.sh
+Purpose:
+- launch WoWshell during development
+
+Use when:
+- manual runtime testing
+- validating shell behavior
+- development iteration
+
+Example:
+./scripts/run-shell.sh
+
+Avoid adding unnecessary runtime wrapper complexity.
+
+---
+
+scripts/profile-startup.sh
+Purpose:
+- measure shell startup performance
+
+Use when:
+- investigating startup regressions
+- validating performance optimizations
+- profiling initialization behavior
+
+Example:
+./scripts/profile-startup.sh
+
+Profiling scripts should remain lightweight and developer-focused.
+
+---
+
+Script usage philosophy:
+
+Prefer:
+- existing repository tooling
+- composable workflows
+- deterministic validation
+- lightweight automation
+
+Avoid:
+- duplicated tooling
+- giant utility scripts
+- hidden automation behavior
+- unnecessary wrappers
+- dangerous filesystem operations
+
+Validation and repository consistency should always be prioritized over convenience shortcuts.
+
+</script_usage_reference>
+
 <git_and_precommit_requirements>
 
 The repository must include:
