@@ -336,6 +336,56 @@ If uncertain:
 Never generate pseudo-code or fake implementations.
 </anti_hallucination_rules>
 
+<security_and_repository_rules>
+
+This repository is public/open-source.
+
+Never generate, commit, store, or expose:
+- API keys
+- tokens
+- secrets
+- passwords
+- private credentials
+- SSH keys
+- OAuth credentials
+- session tokens
+- local machine secrets
+- private certificates
+- private URLs
+- personal information
+- sensitive environment variables
+- private filesystem paths
+- machine-specific identifiers
+- authentication cookies
+- hidden internal endpoints
+
+Never hardcode sensitive information into:
+- source files
+- config files
+- scripts
+- documentation
+- examples
+- comments
+- commits
+
+Always use:
+- placeholders
+- example values
+- environment variable references
+- documented configuration patterns
+
+Never assume secrets belong in the repository.
+
+Prefer:
+- .env.example
+- documented configuration instructions
+- safe defaults
+- runtime configuration injection
+
+Always keep the repository safe for public visibility.
+
+</security_and_repository_rules>
+
 <workflow>
 
 Always follow this workflow:

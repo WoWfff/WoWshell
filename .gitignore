@@ -28,3 +28,10 @@ __pycache__/
 
 # OS
 .DS_Store
+
+# secrets
+.env
+.env.local
+*.secret
+*.key
+*.pem
