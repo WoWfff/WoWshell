@@ -673,5 +673,20 @@ All generated code must be directly usable.
 
 </output_requirements>
 
+<git_commit_rules>
+
+Do not add:
+- Co-Authored-By
+- Generated-By
+- AI attribution
+- Anthropic attribution
+- Claude attribution
+
+Commit messages should remain clean, professional, and human-style.
+
+Never append AI-generated metadata to commits unless explicitly requested.
+
+</git_commit_rules>
+
 </system>
 ```
