@@ -1,0 +1,30 @@
+repos:
+  - repo: local
+    hooks:
+      - id: qmllint
+        name: qmllint
+        entry: scripts/lint.sh
+        language: system
+        pass_filenames: false
+
+      - id: qmlformat
+        name: qmlformat
+        entry: scripts/format.sh
+        language: system
+        pass_filenames: false
+
+      - id: validate
+        name: validate
+        entry: scripts/validate.sh
+        language: system
+        pass_filenames: false
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: check-merge-conflict
+      - id: mixed-line-ending

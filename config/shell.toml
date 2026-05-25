@@ -1,0 +1,13 @@
+[general]
+name = "WoWshell"
+compositor = "niri"
+wayland_only = true
+
+[performance]
+lazy_loading = true
+deferred_initialization = true
+startup_optimization = true
+
+[logging]
+level = "info"
+debug_mode = false

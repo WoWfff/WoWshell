@@ -1,0 +1,30 @@
+# Examples of done configs
+DankMaterialShell/
+noctalia-shell/
+
+# caches
+.cache/
+.mypy_cache/
+.qmlcache/
+qrc_qmlcache/
+
+# build
+build/
+dist/
+
+# logs
+*.log
+
+# temp
+tmp/
+temp/
+
+# IDE
+.idea/
+.vscode/
+
+# python
+__pycache__/
+
+# OS
+.DS_Store

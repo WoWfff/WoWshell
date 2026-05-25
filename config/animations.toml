@@ -1,0 +1,8 @@
+[animations]
+enabled = true
+speed = 1.0
+subtle_effects = true
+
+[blur]
+enabled = true
+strength = 0.3

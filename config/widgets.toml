@@ -1,0 +1,6 @@
+[modules]
+bar = true
+launcher = true
+dashboard = true
+notifications = true
+media = true
